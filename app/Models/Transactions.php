@@ -16,7 +16,5 @@ class Transactions extends Model
         'type',
         'description',
         'transaction_date',
-        'created_at',
-        'updated_at'
     ];
 }
