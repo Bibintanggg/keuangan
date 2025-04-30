@@ -10,8 +10,9 @@
                     <h2 id="ucapan-waktu" class="text-xl font-bold mt-10 px-2"></h2>
                 </div>
 
-                <div class="flex p-6 bg-black">
-                    <div class="flex gap-4">
+                <div class="p-6 bg-black w-[90%] mx-auto rounded-lg h-40 ">
+                    <h1 class="text-white mx-auto text-center text-2xl">My Wallet</h1>
+                    <div class="flex gap-4 justify-between w-full">
 
                     <x-dashboard-card
                         cardTitle="Total Pemasukan"
