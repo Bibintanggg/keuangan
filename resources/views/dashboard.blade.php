@@ -10,25 +10,23 @@
                     <h2 id="ucapan-waktu" class="text-xl font-bold mt-10 px-2"></h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+                <div class="flex p-6 bg-black">
+                    <div class="flex gap-4">
+
                     <x-dashboard-card
-                        title="Total Pendapatan"
-                        :amount= "$totalIncome"
+                        cardTitle="Total Pemasukan"
+                        :amount="$income"
                         bgColor="bg-green-500"
                         textColor="text-white"
                     />
                     <x-dashboard-card
-                        title="Total Pengeluaran"
-                        :amount="$totalIncome"
+                        cardTitle="Total Pemasukan"
+                        :amount="$expense"
                         bgColor="bg-red-500"
                         textColor="text-white"
                     />
-                    <x-dashboard-card
-                        title="Sisa Saldo"
-                        :amount="$balance"
-                        bgColor="bg-blue-500"
-                        textColor="text-white"
-                    />
+                    </div>
+
                 </div>
             </div>
         </div>

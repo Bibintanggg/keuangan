@@ -24,13 +24,13 @@ class DashboardController extends Controller
             -> where('type', 'expense')
             -> sum('amount');
 
-            $balance = $totalIncome - $totalExpense;
+        $balance = $totalIncome - $totalExpense;
 
-            return view('dashboard', [
-                'income' => $totalIncome,
-                'expense' => $totalExpense,
-                'balance' => $balance,
-            ]);
+        return view('dashboard', [
+            'income' => $totalIncome,
+            'expense' => $totalExpense,
+            'balance' => $balance,
+        ]);
     }
 
     /**
