@@ -11,9 +11,18 @@ class DashboardCard extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+
+        public $cardTitle;
+        public $amount;
+        public $textColor;
+        public $bgColor;
+    public function __construct($cardTitle, $amount, $textColor, $bgColor)
     {
         //
+        $this ->cardTitle = $cardTitle;
+        $this ->amount = $amount;
+        $this ->textColor = $textColor;
+        $this ->bgColor = $bgColor;
     }
 
     /**
