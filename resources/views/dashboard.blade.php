@@ -10,7 +10,7 @@
                     <h2 id="ucapan-waktu" class="text-xl font-bold mt-10 px-2"></h2>
                 </div>
 
-                <div class="p-6 bg-black w-[90%] mx-auto rounded-lg h-40 ">
+                <div class="p-6 bg-black w-[90%] mx-auto rounded-lg h-56">
                     <h1 class="text-white mx-auto text-center text-2xl">My Wallet</h1>
                     <div class="flex gap-4 justify-between w-full">
 
@@ -20,6 +20,7 @@
                         bgColor="bg-green-500"
                         textColor="text-white"
                     />
+                    <hr class="h-10 w-0.5 bg-white mt-6">
                     <x-dashboard-card
                         cardTitle="Total Pemasukan"
                         :amount="$expense"
