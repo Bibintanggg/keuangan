@@ -14,13 +14,13 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $userId = Auth::id();
+        $user = Auth::user();
         
-        $totalIncome  = Transactions::where('user_id', $userId) 
+        $totalIncome  = Transactions::where('user_id', $user->id) 
             -> where('type', 'income')
             -> sum('amount');
 
-        $totalExpense = Transactions::where('user_id', $userId)
+        $totalExpense = Transactions::where('user_id', $user->id)
             -> where('type', 'expense')
             -> sum('amount');
 
