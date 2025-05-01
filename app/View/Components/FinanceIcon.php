@@ -12,12 +12,14 @@ class FinanceIcon extends Component
     public $iconTitle;
     public $bgColor;
     public $textColor;
-    public function __construct( $iconTitle, $bgColor, $textColor)
+    public $hoverColor;
+    public function __construct( $iconTitle, $bgColor, $textColor, $hoverColor)
     {
         //
         $this -> iconTitle = $iconTitle;
         $this -> bgColor = $bgColor;
         $this -> textColor = $textColor;
+        $this -> hoverColor = $hoverColor;
     }
 
     /**

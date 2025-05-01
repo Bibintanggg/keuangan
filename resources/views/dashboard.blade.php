@@ -10,7 +10,7 @@
                     <h2 id="ucapan-waktu" class="text-xl font-bold mt-10 px-2"></h2>
                 </div>
 
-                <div class="p-6 bg-black w-[90%] mx-auto rounded-lg h-56">
+                <div class="p-6 bg-gray-700 w-[90%] mx-auto rounded-lg h-56">
                     <h1 class="text-white mx-auto text-center text-2xl">My Wallet</h1>
                     <div class="flex gap-4 justify-between w-full">
 
@@ -22,7 +22,7 @@
                     />
                     <hr class="h-10 w-0.5 bg-white mt-6">
                     <x-dashboard-card
-                        cardTitle="Total Pemasukan"
+                        cardTitle="Total Pengeluaran"
                         :amount="$expense"
                         bgColor="bg-red-500"
                         textColor="text-white"
@@ -33,7 +33,9 @@
                         <x-finance-icon 
                         iconTitle="Pemasukan" 
                         bgColor="bg-green-500" 
-                        textColor="text-white">
+                        textColor="text-white"
+                        hoverColor="bg-black"
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="48" viewBox="0 0 48 48">
                                 <g fill="currentColor">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
@@ -55,7 +57,8 @@
                         <x-finance-icon 
                         iconTitle="Pengeluaran" 
                         bgColor="bg-green-500" 
-                        textColor="text-white">
+                        textColor="text-white"
+                        hoverColor="#022c22">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                                 <g fill="currentColor">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="42" viewBox="0 0 24 24">
@@ -69,7 +72,9 @@
                         <x-finance-icon 
                         iconTitle="Laporan" 
                         bgColor="bg-green-500" 
-                        textColor="text-white">
+                        textColor="text-white"
+                        hoverColor="bg-white"
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                                 <g fill="currentColor">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="42" viewBox="0 0 24 24">
@@ -81,6 +86,8 @@
                         </x-finance-icon>
 
                     </div>
+
+                    <hr class="bg-black w-96 h-0.5 mt-10 mx-auto">
 
                 </div>
             </div>
