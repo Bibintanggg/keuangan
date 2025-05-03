@@ -25,7 +25,7 @@
                         cardTitle="Total Pengeluaran"
                         :amount="$expense"
                         bgColor="bg-red-500"
-                        textColor="text-white"
+                        textColor="text-white"zz
                     />
                     </div>
 
