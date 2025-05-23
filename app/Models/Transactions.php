@@ -11,7 +11,7 @@ class Transactions extends Model
 {
     use HasFactory;
 
-    protected $table = 'table_transactions'; // Pastikan nama tabelnya sesuai
+    protected $table = 'transactions'; // Pastikan nama tabelnya sesuai
     protected $fillable = [
         'user_id',
         'category_id',

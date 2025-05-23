@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="py-12 min-h-screen bg-white w-[36rem] mx-auto -mt-10">
         <div class="max-w-[38rem] mx-auto px-6">
-            @if(session('success'))
+            @if(session('Berhasil'))
                 <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-4">
-                    {{ session('success') }}
+                    {{ session('Berhasil') }}
                 </div>
             @endif
 

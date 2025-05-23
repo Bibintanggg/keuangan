@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/create', [IncomeController::class, 'submit'])->name('button.submit');
+
 Route::get('/dashboard', [DashboardController::class, 'index']) 
    ->middleware(['auth', 'verified'])
     ->name('dashboard');

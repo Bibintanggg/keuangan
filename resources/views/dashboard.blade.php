@@ -25,7 +25,7 @@
                         cardTitle="Total Pengeluaran"
                         :amount="$expense"
                         bgColor="bg-red-500"
-                        textColor="text-white"zz
+                        textColor="text-white"
                     />
                     </div>
 
@@ -35,6 +35,7 @@
                         bgColor="bg-green-500" 
                         textColor="text-white"
                         hoverColor="bg-black"
+                        route=""
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="48" viewBox="0 0 48 48">
                                 <g fill="currentColor">
@@ -58,7 +59,8 @@
                         iconTitle="Pengeluaran" 
                         bgColor="bg-green-500" 
                         textColor="text-white"
-                        hoverColor="#022c22">
+                        hoverColor="#022c22"
+                        route="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                                 <g fill="currentColor">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="42" viewBox="0 0 24 24">
@@ -74,6 +76,7 @@
                         bgColor="bg-green-500" 
                         textColor="text-white"
                         hoverColor="bg-white"
+                        route=""
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                                 <g fill="currentColor">
@@ -87,8 +90,17 @@
 
                     </div>
 
-                    <hr class="bg-black w-96 h-0.5 mt-10 mx-auto">
+                    <hr class="bg-black w-[30rem] h-0.5 mt-10 mx-auto">
 
+                    <div>
+                        <div class="mt-5 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="42" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M9 17H7v-7h2zm4 0h-2V7h2zm4 0h-2v-4h2zm2 2H5V5h14v14.1M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2" />
+                            </svg>
+                            <p class="font-bold text-xl">Informasi</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
