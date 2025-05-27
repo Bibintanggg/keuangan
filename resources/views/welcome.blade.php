@@ -108,12 +108,17 @@
                                             <h2 class="text-2xl font-semibold text-white text-center">Informasi</h2>
                                         </div>
                                         <p class="text-white
-                                    <h1 class="text-white "> KEUANGANKU hadir dengan berbagai fitur unggulan yang bikin urusan finansial jadi lebih mudah.</h1>
+                                    <h1 class="text-white "> Dengan fitur Informasi, semua pemasukan dan pengeluaranmu dirangkum rapi sehingga kamu bisa pantau kondisi keuangan
+                                    secara mudah dan cepat.</h1>
                                     <ul class="text-white/90 mt-4 ">
-                                        <li class="flex items-center"> 
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24"><path fill="currentColor" d="M6.616 21q-.691 0-1.153-.462T5 19.385V4.615q0-.69.463-1.152T6.616 3h10.769q.69 0 1.153.463T19 4.616v14.769q0 .69-.462 1.153T17.384 21zm0-1h10.769q.23 0 .423-.192t.192-.424V4.616q0-.231-.192-.424T17.384 4H16v6.116l-2-1.193l-2 1.193V4H6.616q-.231 0-.424.192T6 4.615v14.77q0 .23.192.423t.423.192M6 20V4zm6-9.885l2-1.192l2 1.192l-2-1.192z"/></svg>
-                                             <span class="ml-10">Catat semua pemasukan — dari gaji bulanan, uang jajan, THR, sampai hasil freelance masuk semua!</span></li>
-                                        <li></li>
+                                        <li class="flex items-center">
+                                            <hr class="w-1 h-10 bg-black">
+                                            <span class="ml-10">Rincian Transaksi Terbaru – Daftar pengeluaran dan pemasukan terakhir.</span>
+                                        </li>
+                                        <li class="flex items-center">
+                                            <hr class="w-1 h-10 bg-black">
+                                            <span class="ml-10 mt-4">Highlight Finansial – Misal: “Pengeluaran tertinggi minggu ini: Jajan kopi "Rp50.000”</span>
+                                        </li>
                                         <li></li>
                                         <li></li>
                                     </ul>

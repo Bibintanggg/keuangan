@@ -9,8 +9,8 @@
 
             <a href="{{ route('income.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">+ Tambah Pemasukan</a>
 
-            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200">
+            <div class="bg-white shadow overflow-hidden sm:rounded-lg overflow-x-auto">
+                <table class="min-w-4 divide-y divide-gray-200 -translate-x-5">
                     <thead class="bg-gray-50">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nominal</th>
