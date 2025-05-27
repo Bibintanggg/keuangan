@@ -13,7 +13,7 @@
 
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gradient-to-br from-blue-600   to-indigo-800 selection:text-white">
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-[1000vh] bg-dots-darker bg-center bg-gradient-to-br from-blue-600   to-indigo-800 selection:text-white max-w-xl mx-auto">
             
 
             <div class="absolute inset-0 overflow-hidden">
@@ -24,10 +24,10 @@
             </div>
 
             <!-- Main -->
-            <div>
-                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
-                    <h1 class="text-white text-5xl font-bold ">Mau mengelola keuangan <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500  ">dengan mudah ?? </span></h1>
-                    <p class="text-white max-w-4xl text-xl md:text-2xl py-8  mx-auto">Aplikasi keuangan modern yang membantu anda mengelola pemasukan, pengeluaran, dan mencapai tujaun finansial dengan lebih efektif</p>
+            <div class="translate-y-40">
+                <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
+                    <h1 class="text-white text-4xl font-bold font-montserrat ">Mau mengelola keuangan <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500  ">dengan mudah ?? </span></h1>
+                    <p class="text-white max-w-4xl text-lg py-8 font-semibold  mx-auto">Aplikasi keuangan modern yang membantu anda mengelola pemasukan, pengeluaran, dan mencapai tujaun finansial dengan lebih efektif</p>
                 </div>
 
                 <!-- Button -->
@@ -37,7 +37,7 @@
                             <a href={{ url('/dashboard') }} 
                             class="bg-white text-purple-600 hover:bg-gray-100 px-3 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg md:px-8">Dashboard</a>
                             @else 
-                            <a href="{{ route('register') }}"
+                            <a href="{{ route('register') }}"   
                             class="bg-white text-purple-600 hover:bg-gray-100 px-3 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg md:px-8">Mulai Sekarang</a>
 
                             <a href="{{ route('login') }}"
@@ -48,12 +48,12 @@
                     <!-- Ads -->
                     <div>
                         <div class="flex justify-center items-center mt-36 gap-2 flex-col">
-                            <h1 class="text-4xl text-white font-bold">Fitur Fitur</h1>
-                            <p class="text-white/90 font-semibold max-w-xl text-center ">Nikmati berbagai fitur canggih untuk membantu kamu mengatur keuangan lebih mudah dan efisien.</p>
+                            <h1 class="text-3xl text-white font-bold">Fitur Fitur</h1>
+                            <p class="text-white/90 font-semibold max-w-sm text-center text-md ">Nikmati berbagai fitur canggih untuk membantu kamu mengatur keuangan lebih mudah dan efisien.</p>
                         </div>
 
                             <div>
-                                <div class="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 w-[90rem]">
+                                <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mt-10 w-[20rem] mx-auto">
                                     <div class="h-full w-full bg-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 p-6 shadow-lg 
                                     hover:shadow-xl transition-shadow duration-300">
                                         <div class="flex  justify-center ">
@@ -66,9 +66,13 @@
                                     <h1 class="text-white "> KEUANGANKU hadir dengan berbagai fitur unggulan yang bikin urusan finansial jadi lebih mudah.</h1>
                                     <ul class="text-white/90 mt-4 ">
                                         <li class="flex items-center"> 
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24"><path fill="currentColor" d="M6.616 21q-.691 0-1.153-.462T5 19.385V4.615q0-.69.463-1.152T6.616 3h10.769q.69 0 1.153.463T19 4.616v14.769q0 .69-.462 1.153T17.384 21zm0-1h10.769q.23 0 .423-.192t.192-.424V4.616q0-.231-.192-.424T17.384 4H16v6.116l-2-1.193l-2 1.193V4H6.616q-.231 0-.424.192T6 4.615v14.77q0 .23.192.423t.423.192M6 20V4zm6-9.885l2-1.192l2 1.192l-2-1.192z"/></svg>
-                                             <span class="ml-10">Catat semua pemasukan — dari gaji bulanan, uang jajan, THR, sampai hasil freelance masuk semua!</span></li>
-                                        <li></li>
+                                            <hr class="w-1 h-10 bg-black">
+                                             <span class="ml-10">Catat semua pemasukan — dari gaji bulanan, uang jajan, THR, sampai hasil freelance masuk semua!</span>
+                                        </li>
+                                        <li class="flex items-center mt-2"> 
+                                            <hr class="w-1 h-10 bg-black">
+                                             <span class="ml-10">Pantau total pemasukanmu harian, mingguan, atau bulanan dengan tampilan yang simpel.</span>
+                                        </li>
                                         <li></li>
                                         <li></li>
                                     </ul>
@@ -80,12 +84,16 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="0 0 24 24"><g fill="none" stroke="#ba68d2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="#ba68d2"><path d="M12.002 9.001c-1.105 0-2 .672-2 1.5s.895 1.5 2 1.5s2 .672 2 1.5s-.896 1.5-2 1.5m0-6c.87 0 1.612.417 1.886 1m-1.886-1v-1m0 7c-.87 0-1.612-.417-1.886-1m1.886 1v1"/><path d="M13.5 2.501H12c-4.478 0-6.718 0-8.109 1.391S2.5 7.522 2.5 12.001c0 4.478 0 6.717 1.391 8.109C5.282 21.5 7.521 21.5 12 21.5c4.478 0 6.718 0 8.109-1.391S21.5 16.48 21.5 12v-1.5m-5-3.001l4.176-4.178m.824 3.656l-.118-3.091c0-.729-.435-1.183-1.228-1.24l-3.124-.147"/></g></svg>
                                             <h2 class="text-2xl font-semibold text-white text-center">Pengeluaran</h2>
                                         </div>
-                                    <h1 class="text-white mt-6"> KEUANGANKU hadir dengan berbagai fitur unggulan yang bikin urusan finansial jadi lebih mudah.</h1>
+                                    <h1 class="text-white mt-6"> Dengan fitur Pengeluaran, semua uang yang kamu keluarkan bisa tercatat rapi dan mudah dipantau kapan saja.</h1>
                                     <ul class="text-white/90 mt-4 ">
                                         <li class="flex items-center"> 
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 24 24"><path fill="currentColor" d="M6.616 21q-.691 0-1.153-.462T5 19.385V4.615q0-.69.463-1.152T6.616 3h10.769q.69 0 1.153.463T19 4.616v14.769q0 .69-.462 1.153T17.384 21zm0-1h10.769q.23 0 .423-.192t.192-.424V4.616q0-.231-.192-.424T17.384 4H16v6.116l-2-1.193l-2 1.193V4H6.616q-.231 0-.424.192T6 4.615v14.77q0 .23.192.423t.423.192M6 20V4zm6-9.885l2-1.192l2 1.192l-2-1.192z"/></svg>
-                                             <span class="ml-10">Catat semua pemasukan — dari gaji bulanan, uang jajan, THR, sampai hasil freelance masuk semua!</span></li>
-                                        <li></li>
+                                            <hr class="w-1 h-10 bg-black">
+                                             <span class="ml-10">Catat semua pengeluaran, dari yang besar kayak bayar kos, sampai yang kecil kayak jajan cilok.</span>
+                                        </li>
+                                        <li class="flex items-center mt-2"> 
+                                            <hr class="w-1 h-10 bg-black">
+                                             <span class="ml-10"> Bantu kamu sadar kebiasaan boros, dan mulai belanja dengan lebih bijak.</span>
+                                        </li>
                                         <li></li>
                                         <li></li>
                                     </ul>
