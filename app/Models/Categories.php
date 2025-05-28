@@ -14,7 +14,7 @@ class Categories extends Model
 
     // Field yang boleh diisi massal (mass assignable)
     protected $fillable = [
-        'name',
+        'name'
     ];
 
     // Jika kamu mau relasi ke transactions:

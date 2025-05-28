@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Transactions;
-use App\Models\Categories;
+use App\Models\Transactions; // Ubah ke singular
+use App\Models\Categories;    // Ubah ke singular
 use Illuminate\Support\Facades\Auth;
 
 class IncomeController extends Controller
@@ -15,7 +15,8 @@ class IncomeController extends Controller
     public function index(Request $request)
     {
         $userId = Auth::id();
-        $incomes = Transactions::where('user_id', $userId)
+        $incomes = Transactions::with('category') // Tambah eager loading
+            ->where('user_id', $userId)
             ->where('type', 'income')
             ->latest()
             ->get();
@@ -28,7 +29,10 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        $categories = Categories::all();
+        // Filter hanya kategori income jika ada field 'type'
+        $categories = Categories::where('type', 'income')->get();
+        // Atau jika tidak ada field type, gunakan: Category::all();
+
         return view('income.create', compact('categories'));
     }
 
@@ -61,12 +65,13 @@ class IncomeController extends Controller
      */
     public function edit(string $id)
     {
-        $income = Transactions::where('id', $id)
+        $income = Transactions::with('category') // Tambah eager loading
+            ->where('id', $id)
             ->where('user_id', Auth::id())
             ->where('type', 'income')
             ->firstOrFail();
 
-        $categories = Categories::all();
+        $categories = Categories::where('type', 'income')->get();
 
         return view('income.edit', compact('income', 'categories'));
     }
