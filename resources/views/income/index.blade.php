@@ -15,6 +15,7 @@
                         <tr>
                             <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Nominal</th>
                             <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Deskripsi</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Tipe</th>
                             <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Tanggal</th>
                             <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Aksi</th>
                         </tr>
