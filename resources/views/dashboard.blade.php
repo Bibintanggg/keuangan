@@ -16,7 +16,9 @@
                         <div class="flex justify-center text-white mx-auto gap-12">
                             <div>
                                 <h1 class="text-2xl text-nowrap">Total Pemasukan</h1>
-                                <p class="text-xl">Rp</p>
+                                <p class="text-xl">
+                                    Rp {{ number_format($dash, 0, ',', '.') }}
+                                </p>
                             </div>
                             <hr class="w-0.5 h-16 bg-white">
                             <div>

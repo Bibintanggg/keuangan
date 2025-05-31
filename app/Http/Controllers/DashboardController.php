@@ -15,6 +15,8 @@ class DashboardController extends Controller
     public function index()
     {
         //
+        $dash = Income::sum('total');
+        return view('dashboard', compact('dash'));
     }
 
     /**
@@ -39,6 +41,8 @@ class DashboardController extends Controller
     public function show(string $id)
     {
         //
+        $dash = Income::findOrFail($id);
+        return view('dashboard.index', compact('dash'));
     }
 
     /**

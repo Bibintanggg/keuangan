@@ -75,6 +75,6 @@ class IncomeController extends Controller
     {
         $tugas = Income::findOrFail($id);
         $tugas->delete();
-        return redirect()->route('tugas.index')->with('succes', 'Berhasil! Pemasukan berhasil dihapus!');
+        return redirect()->route('income.index')->with('succes', 'Berhasil! Pemasukan berhasil dihapus!');
     }
 }
