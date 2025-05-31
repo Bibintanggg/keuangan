@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('expense', function (Blueprint $table) {
             $table->id();
+            $table->decimal('total', 15, 2);
+            $table->string('deskripsi')->nullable();
+            $table->timestamp('transaction_date')->useCurrent();
             $table->timestamps();
         });
     }

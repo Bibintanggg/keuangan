@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('dashboard', function (Blueprint $table) {
             $table->id();
             $table->foreignId('total')->constrained('income')->cascadeOnDelete();
+            $table->foreignId('total')->constrained('expense')->cascadeOnDelete();
             $table->timestamps();
         });
     }

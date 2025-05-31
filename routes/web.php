@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ExpenseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/expense', [ExpenseController::class, 'index']);
+Route::get('/expense/create', [ExpenseController::class, 'create'])->name('expense.create');
+route::post('/expense/store', [ExpenseController::class, 'store'])->name('expense.store');
+Route::resource('expense', ExpenseController::class);
 
 Route::post('/create', [IncomeController::class, 'submit'])->name('button.submit');
 

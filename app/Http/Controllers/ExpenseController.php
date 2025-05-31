@@ -13,6 +13,8 @@ class ExpenseController extends Controller
     public function index()
     {
         //
+        $expenses = Expense::all();
+        return view('expense.index', compact('expenses'));
     }
 
     /**
@@ -21,6 +23,7 @@ class ExpenseController extends Controller
     public function create()
     {
         //
+        return view('expense.create');
     }
 
     /**
@@ -29,6 +32,16 @@ class ExpenseController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->all();
+
+        $request -> validate([
+            'total' => 'required|numeric|min:1000, max: 1000000',
+            'deskripsi' => 'required|string|max:60',
+        ]);
+
+        Expense::create($request->all());
+        return redirect()->route('expense.index')->with('succes', 'Berhasil! Pengeluaran berhasil ditambahkan');
+
     }
 
     /**
@@ -42,24 +55,39 @@ class ExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Expense $expense)
+    public function edit(string $id)
     {
         //
+        $expenses = Expense::findOrFail($id);
+        return view('expense.edit', compact('expenses'));
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Expense $expense)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'total' => 'required|numeric|min:1000, max:1000000',
+            'deskripsi' => 'required|string|max:60'
+        ]);
+
+        $expenses = Expense::findOrFail($id);
+        $expenses -> update($request->all());
+        return redirect()->route('expense.index')->with('succes', 'Berhasil! Pengeluaran berhasil diperbarui');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Expense $expense)
+    public function destroy(string $id)
     {
         //
+        $expenses = Expense::findOrFail($id);
+        $expenses -> delete();
+        return redirect()->route('expense.index')->with('succes', 'Berhasil! Pengeluaran berhasil dihapus!');
+        
     }
 }

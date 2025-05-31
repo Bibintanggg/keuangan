@@ -9,4 +9,14 @@ class Expense extends Model
 {
     use HasFactory;
     protected $table = 'expense';
+
+    protected $fillable  = [
+        'total',
+        'deskripsi',
+        'transaction_date'
+    ];
+
+    protected $casts = [
+        'transaction_date' => 'datetime'
+    ];
 }

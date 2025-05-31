@@ -10,7 +10,7 @@
                     <h2 id="ucapan-waktu" class="text-xl font-bold mt-10 px-2"></h2>
                 </div>
 
-                <div class="p-6 bg-gray-700 w-[90%] mx-auto rounded-lg h-[13rem]">
+                <div class="p-6 bg-gray-700 w-[90%] mx-auto rounded-lg h-[17rem]">
                     <h1 class="text-white mx-auto text-center text-2xl">My Wallet</h1>
                     <div class="flex mt-5">
                         <div class="flex justify-center text-white mx-auto gap-12">
@@ -23,12 +23,22 @@
                             <hr class="w-0.5 h-16 bg-white">
                             <div>
                                 <h1 class="text-2xl text-nowrap">Total Pengeluaran</h1>
-                                <p class="text-xl">Rp. 1.000</p>
+                                <p class="text-xl">
+                                    Rp {{ number_format($expDash, 0, ',', '.') }}
+                                </p>
                             </div>
                         </div>
+
                     </div>
 
-                    <div class="w-10 flex gap-1 bg-white justify-center mx-auto mt-10">
+                    <div class="flex items-center text-white mt-5 gap-20 justify-center">
+                        <h1 class="text-xl">Saldo kamu sekarang : </h1>
+                        <p class="text-lg">
+                            Rp {{ number_format($saldo, 0, ',', '.') }}
+                        </p>
+                    </div>
+
+                    <div class="w-10 flex gap-1 bg-white justify-center mx-auto mt-5">
                         <x-finance-icon 
                         iconTitle="Pemasukan" 
                         bgColor="bg-green-500" 

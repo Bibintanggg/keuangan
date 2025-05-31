@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Expense;
 use Illuminate\Http\Request;
 use App\Models\Transactions;
 use App\Models\Income;
@@ -16,7 +17,10 @@ class DashboardController extends Controller
     {
         //
         $dash = Income::sum('total');
-        return view('dashboard', compact('dash'));
+        $expDash = Expense::sum('total');
+
+        $saldo = $dash - $expDash;
+        return view('dashboard', compact('dash', 'expDash', 'saldo'));
     }
 
     /**
@@ -42,7 +46,8 @@ class DashboardController extends Controller
     {
         //
         $dash = Income::findOrFail($id);
-        return view('dashboard.index', compact('dash'));
+        $expDash = Expense::findOrFail($id);
+        return view('dashboard.index', compact('dash', 'expDash'));
     }
 
     /**

@@ -7,8 +7,7 @@
                 </div>
             @endif
 
-            <a href="{{ route('income.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">+ Tambah Pemasukan</a>
-
+            
             <div class="bg-white rounded-lg shadow overflow-x-auto">
                 <table class="min-w-[640px] w-full divide-y divide-gray-200">
                     <thead class="bg-gray-100">
@@ -34,12 +33,17 @@
                                     </form>
                                 </td>
                             </tr>
-                        @empty
+                            @empty
                             <tr><td colspan="4" class="text-center py-4">Belum ada pemasukan</td></tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="flex gap-5">
+                    <a href="{{ route('income.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block mt-10">+ Tambah Pemasukan</a>
+                    <a href="{{ url('dashboard')}}" class="bg-gray-500 text-white px-4 py-2 rounded mb-4 inline-block mt-10">Kembali</a>
+                </div>
         </div>
     </div>
 </x-app-layout>
