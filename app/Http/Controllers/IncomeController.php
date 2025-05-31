@@ -35,7 +35,7 @@ class IncomeController extends Controller
         $input = $request->all();
 
         $request -> validate([
-            'total' => 'required|numeric|max:1',
+            'total' => 'required|numeric|min:1000, max:1000000',
             'deskripsi' => 'required|string|max:60',
         ]);
 
@@ -59,13 +59,13 @@ class IncomeController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'total' => 'required|numeric|max:0',
+            'total' => 'required|numeric|min:1000,max:1000000',
             'deskripsi' => 'required|string|max:60'
         ]);
 
         $income = Income::findOrFail($id);
-        $income -> update($request -> all());
-        return redirect()->route('income.index')->with('succes', 'Pemasukan berhasil di perbarui!');
+        $income -> update(attributes: $request -> all());
+        return redirect()->route('income.index')->with('succes', 'Pemasukan berhasil diperbarui!');
     }
 
     /**
@@ -75,6 +75,6 @@ class IncomeController extends Controller
     {
         $tugas = Income::findOrFail($id);
         $tugas->delete();
-        return redirect()->route('tugas.index');
+        return redirect()->route('tugas.index')->with('succes', 'Berhasil! Pemasukan berhasil dihapus!');
     }
 }

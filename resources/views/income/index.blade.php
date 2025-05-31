@@ -15,7 +15,6 @@
                         <tr>
                             <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Nominal</th>
                             <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Deskripsi</th>
-                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Tipe</th>
                             <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Tanggal</th>
                             <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Aksi</th>
                         </tr>
@@ -23,8 +22,8 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @forelse($incomes as $income)
                             <tr>
-                                <td class="px-4 py-3 whitespace-nowrap">Rp {{ number_format($income->amount, 0, ',', '.') }}</td>
-                                <td class="px-4 py-3 whitespace-nowrap">{{ $income->description ?? '-' }}</td>
+                                <td class="px-4 py-3 whitespace-nowrap">Rp {{ number_format($income->total, 0, ',', '.') }}</td>
+                                <td class="px-4 py-3 whitespace-nowrap">{{ $income->deskripsi ?? '-' }}</td>
                                 <td class="px-4 py-3 whitespace-nowrap">{{ $income->transaction_date->format('d M Y') }}</td>
                                 <td class="px-4 py-3 whitespace-nowrap">
                                     <a href="{{ route('income.edit', $income->id) }}" class="text-yellow-500 hover:underline">Edit</a>

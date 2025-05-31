@@ -17,7 +17,7 @@
 
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">Nominal</label>
-                        <input type="number" name="amount" step="0.01"
+                        <input type="number" name="total"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             placeholder="Masukkan nominal" required>
                         @error('total')
@@ -28,7 +28,7 @@
 
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">Deskripsi</label>
-                        <input type="text" name="description"
+                        <input type="text" name="deskripsi"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             placeholder="Masukkan deskripsi" required>
                         @error('deskripsi')

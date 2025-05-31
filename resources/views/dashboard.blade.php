@@ -14,19 +14,19 @@
                     <h1 class="text-white mx-auto text-center text-2xl">My Wallet</h1>
                     <div class="flex gap-4 justify-between w-full">
 
-                    <x-dashboard-card
-                        cardTitle="Total Pemasukan"
-                        :amount="$income"
-                        bgColor="bg-green-500"
-                        textColor="text-white"
-                    />
-                    <hr class="h-10 w-0.5 bg-white mt-6">
-                    <x-dashboard-card
-                        cardTitle="Total Pengeluaran"
-                        :amount="$expense"
-                        bgColor="bg-red-500"
-                        textColor="text-white"
-                    />
+                    <div class="flex">
+                        <div class="flex justify-center ">
+                            <div >
+                                <h1>Total Pemasukan</h1>
+                                <p>Rp 1.000</p>
+                            </div>
+
+                            <div>
+                                <h1>Total Pengeluaran</h1>
+                                <p>Rp. 1.000</p>
+                            </div>
+                        </div>
+                    </div>
                     </div>
 
                     <div class="w-10 flex gap-1 bg-white justify-center mx-auto ">
