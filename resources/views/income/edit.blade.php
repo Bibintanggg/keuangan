@@ -10,12 +10,12 @@
 
             <div class="mb-3">
                 <label>Nominal</label>
-                <input type="number" name="amount" value="{{ $income->amount }}" class="form-control" required>
+                <input type="number" name="total" value="{{ $income->total }}" class="form-control" required>
             </div>
 
             <div class="mb-3">
                 <label>Deskripsi (opsional)</label>
-                <input type="text" name="description" value="{{ $income->description }}" class="form-control">
+                <input type="text" name="deskripsi" value="{{ $income->deskripsi }}" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>
