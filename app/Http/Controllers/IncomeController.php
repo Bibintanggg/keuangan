@@ -49,8 +49,8 @@ class IncomeController extends Controller
      */
     public function edit(string $id)
     {
-        $incomes = Income::findOrFail($id);
-        return view('income.edit', compact('incomes'));
+        $income = Income::findOrFail($id);
+        return view('income.edit', compact('income'));
     }
 
     /**
