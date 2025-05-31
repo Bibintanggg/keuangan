@@ -16,7 +16,7 @@
                         <div class="flex justify-center text-white mx-auto gap-12">
                             <div>
                                 <h1 class="text-2xl text-nowrap">Total Pemasukan</h1>
-                                <p class="text-xl">Rp 1.000</p>
+                                <p class="text-xl">Rp</p>
                             </div>
                             <hr class="w-0.5 h-16 bg-white">
                             <div>

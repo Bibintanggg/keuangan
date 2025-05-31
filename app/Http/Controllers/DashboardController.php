@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transactions;
+use App\Models\Income;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -14,23 +15,6 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $user = Auth::user();
-        
-        $totalIncome  = Transactions::where('user_id', $user->id) 
-            -> where('type', 'income')
-            -> sum('amount');
-
-        $totalExpense = Transactions::where('user_id', $user->id)
-            -> where('type', 'expense')
-            -> sum('amount');
-
-        $balance = $totalIncome - $totalExpense;
-
-        return view('dashboard', [
-            'income' => $totalIncome,
-            'expense' => $totalExpense,
-            'balance' => $balance,
-        ]);
     }
 
     /**
