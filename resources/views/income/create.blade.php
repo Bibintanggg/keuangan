@@ -20,7 +20,7 @@
                         <input type="number" name="amount" step="0.01"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             placeholder="Masukkan nominal" required>
-                        @error('amount')
+                        @error('total')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
@@ -31,7 +31,7 @@
                         <input type="text" name="description"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             placeholder="Masukkan deskripsi" required>
-                        @error('description')
+                        @error('deskripsi')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>

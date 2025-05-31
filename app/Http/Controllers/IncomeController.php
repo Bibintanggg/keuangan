@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Transactions; // Ubah ke singular
-use App\Models\Categories;    // Ubah ke singular
+use App\Models\Income;
+use App\Models\Categories;  
 use Illuminate\Support\Facades\Auth;
 
 class IncomeController extends Controller
@@ -14,14 +14,9 @@ class IncomeController extends Controller
      */
     public function index(Request $request)
     {
-        $userId = Auth::id();
-        $incomes = Transactions::with('category') // Tambah eager loading
-            ->where('user_id', $userId)
-            ->where('type', 'income')
-            ->latest()
-            ->get();
-
+        $incomes = Income::all();
         return view('income.index', compact('incomes'));
+
     }
 
     /**
@@ -29,11 +24,7 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        // Filter hanya kategori income jika ada field 'type'
-        $categories = Categories::where('type', 'income')->get();
-        // Atau jika tidak ada field type, gunakan: Category::all();
-
-        return view('income.create', compact('categories'));
+        return view ('income.create');
     }
 
     /**
@@ -41,23 +32,16 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'amount' => 'required|numeric|min:1',
-            'description' => 'nullable|string|max:255',
-            'transaction_date' => 'required|date',
-            'category_id' => 'required|exists:categories,id',
+        $input = $request->all();
+
+        $request -> validate([
+            'total' => 'required|numeric|max:1',
+            'deskripsi' => 'required|string|max:60',
         ]);
 
-        Transactions::create([
-            'user_id' => Auth::id(),
-            'category_id' => $request->category_id,
-            'type' => 'income',
-            'amount' => $request->amount,
-            'description' => $request->description,
-            'transaction_date' => $request->transaction_date,
-        ]);
+        Income::create($request->all());
+        return redirect()->route('income.index')->with('succes,', ' Pemasuka berhasil ditambahkan!');
 
-        return redirect()->route('income.index')->with('Berhasil', "Pemasukanmu Berhasil Ditambahkan!");
     }
 
     /**
@@ -65,42 +49,23 @@ class IncomeController extends Controller
      */
     public function edit(string $id)
     {
-        $income = Transactions::with('category') // Tambah eager loading
-            ->where('id', $id)
-            ->where('user_id', Auth::id())
-            ->where('type', 'income')
-            ->firstOrFail();
-
-        $categories = Categories::where('type', 'income')->get();
-
-        return view('income.edit', compact('income', 'categories'));
+        $incomes = Income::findOrFail($id);
+        return view('income.edit', compact('incomes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'amount' => 'required|numeric|min:1',
-            'description' => 'nullable|string|max:255',
-            'transaction_date' => 'required|date',
-            'category_id' => 'required|exists:categories,id',
+            'total' => 'required|numeric|max:0',
+            'deskripsi' => 'required|string|max:60'
         ]);
 
-        $income = Transactions::where('id', $id)
-            ->where('user_id', Auth::id())
-            ->where('type', 'income')
-            ->firstOrFail();
-
-        $income->update([
-            'amount' => $request->amount,
-            'description' => $request->description,
-            'transaction_date' => $request->transaction_date,
-            'category_id' => $request->category_id,
-        ]);
-
-        return redirect()->route('income.index')->with('Berhasil', 'Pemasukanmu Berhasil Diperbarui!');
+        $income = Income::findOrFail($id);
+        $income -> update($request -> all());
+        return redirect()->route('income.index')->with('succes', 'Pemasukan berhasil di perbarui!');
     }
 
     /**
@@ -108,13 +73,8 @@ class IncomeController extends Controller
      */
     public function destroy(string $id)
     {
-        $income = Transactions::where('id', $id)
-            ->where('user_id', Auth::id())
-            ->where('type', 'income')
-            ->firstOrFail();
-
-        $income->delete();
-
-        return redirect()->route('income.index')->with('Berhasil', "Pemasukanmu Berhasil Dihapus!");
+        $tugas = Income::findOrFail($id);
+        $tugas->delete();
+        return redirect()->route('tugas.index');
     }
 }
