@@ -12,24 +12,21 @@
 
                 <div class="p-6 bg-gray-700 w-[90%] mx-auto rounded-lg h-[13rem]">
                     <h1 class="text-white mx-auto text-center text-2xl">My Wallet</h1>
-                    <div class="flex gap-4 justify-between w-full">
-
-                    <div class="flex">
-                        <div class="flex justify-center ">
-                            <div >
-                                <h1>Total Pemasukan</h1>
-                                <p>Rp 1.000</p>
-                            </div>
-
+                    <div class="flex mt-5">
+                        <div class="flex justify-center text-white mx-auto gap-12">
                             <div>
-                                <h1>Total Pengeluaran</h1>
-                                <p>Rp. 1.000</p>
+                                <h1 class="text-2xl text-nowrap">Total Pemasukan</h1>
+                                <p class="text-xl">Rp 1.000</p>
+                            </div>
+                            <hr class="w-0.5 h-16 bg-white">
+                            <div>
+                                <h1 class="text-2xl text-nowrap">Total Pengeluaran</h1>
+                                <p class="text-xl">Rp. 1.000</p>
                             </div>
                         </div>
                     </div>
-                    </div>
 
-                    <div class="w-10 flex gap-1 bg-white justify-center mx-auto ">
+                    <div class="w-10 flex gap-1 bg-white justify-center mx-auto mt-10">
                         <x-finance-icon 
                         iconTitle="Pemasukan" 
                         bgColor="bg-green-500" 
