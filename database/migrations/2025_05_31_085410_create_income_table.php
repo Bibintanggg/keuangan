@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('income', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->decimal('total', 15, 2);
             $table->string('deskripsi')->nullable();
             $table->timestamp('transaction_date')->useCurrent();

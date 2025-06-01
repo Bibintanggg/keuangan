@@ -14,7 +14,7 @@ class IncomeController extends Controller
      */
     public function index(Request $request)
     {
-        $incomes = Income::all();
+        $incomes = Income::where('user_id', Auth::id())->get();
         return view('income.index', compact('incomes'));
 
     }
@@ -39,7 +39,11 @@ class IncomeController extends Controller
             'deskripsi' => 'required|string|max:60',
         ]);
 
-        Income::create($request->all());
+        Income::create([
+            'total' => $request->total,
+            'deskripsi' => $request->deskripsi,
+            'user_id' => auth()->id(),
+        ]);
         return redirect()->route('income.index')->with('succes,', ' Pemasuka berhasil ditambahkan!');
 
     }
