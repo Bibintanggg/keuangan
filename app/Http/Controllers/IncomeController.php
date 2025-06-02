@@ -53,7 +53,7 @@ class IncomeController extends Controller
      */
     public function edit(string $id)
     {
-        $income = Income::findOrFail($id);
+        $income = Income::where('id', $id)->where('user_id', auth()->id()->firstOrFail());
         return view('income.edit', compact('income'));
     }
 

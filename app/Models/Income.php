@@ -12,7 +12,8 @@ class Income extends Model
     protected $fillable = [
         'total',
         'deskripsi',
-        'transaction_date'
+        'transaction_date',
+        'user_id'
     ];
 
     protected $casts = [
