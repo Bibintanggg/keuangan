@@ -119,6 +119,7 @@
                                 <p>pada tanggal {{ $income->transaction_date }}</p>
                                 <p>Deskripsi :  {{ $income->deskripsi }}</p>
                                 <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
+
                             @empty
                             <tr><td colspan="4" class="text-center py-4">Belum ada pemasukan</td></tr>
                             @endforelse
