@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Expense;
+use App\Models\Income;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -13,7 +14,7 @@ class ExpenseController extends Controller
     public function index()
     {
         //
-        $expenses = Expense::all();
+        $expenses = Expense::where('user_id', auth()->id())->get();
         return view('expense.index', compact('expenses'));
     }
 
@@ -38,8 +39,20 @@ class ExpenseController extends Controller
             'total' => 'required|numeric|min:1000, max: 1000000',
             'deskripsi' => 'required|string|max:60',
         ]);
+        
+        $totalIncome = Income::where('user_id', auth()->id())->sum('total');
+        $totalExpense = Expense::where('user_id', auth()->id())->sum('total');
+        $saldo = $totalIncome - $totalExpense;
+        if ($saldo < $request->total) {
+            return redirect()->back()->with('error', 'Saldo tidak mencukupi untuk pengeluaran ini.');
+        }
 
-        Expense::create($request->all());
+        Expense::create([
+            'total' => $request->total,
+            'deskripsi' => $request->deskripsi,
+            'user_id' => auth()->id(),
+        ]);
+
         return redirect()->route('expense.index')->with('succes', 'Berhasil! Pengeluaran berhasil ditambahkan');
 
     }
@@ -58,7 +71,7 @@ class ExpenseController extends Controller
     public function edit(string $id)
     {
         //
-        $expenses = Expense::findOrFail($id);
+        $expenses = Expense::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
         return view('expense.edit', compact('expenses'));
         
     }

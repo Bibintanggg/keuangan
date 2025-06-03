@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="p-6 bg-gray-700 w-[90%] mx-auto rounded-lg h-[17rem]">
-                    <h1 class="text-white mx-auto text-center text-2xl">My Wallet</h1>
+                    <h1 class="text-white mx-auto text-center text-2xl">Dompet Saya</h1>
                     <div class="flex mt-5">
                         <div class="flex justify-center text-white mx-auto gap-12">
                             <div>
@@ -85,7 +85,7 @@
                         bgColor="bg-green-500" 
                         textColor="text-white"
                         hoverColor="bg-white"
-                        route="{{ '/' }}"
+                        route="{{ '/laporan' }}"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                                 <g fill="currentColor">
@@ -108,6 +108,35 @@
                                     d="M9 17H7v-7h2zm4 0h-2V7h2zm4 0h-2v-4h2zm2 2H5V5h14v14.1M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2" />
                             </svg>
                             <p class="font-bold text-xl">Informasi</p>
+                        </div>
+                        
+                        <div class="overflow-y-auto max-h-[30rem]">
+                            <div class="mt-5">
+                                @forelse($latestIncome as $income)
+                                <p>
+                                    <span class="text-lg font-semibold">{{ Auth::user()->name }},</span> 
+                                menabung sebesar Rp. "{{ number_format($income->total, 0, ',', '.') }}"</p>
+                                <p>pada tanggal {{ $income->transaction_date }}</p>
+                                <p>Deskripsi :  {{ $income->deskripsi }}</p>
+                                <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
+                            @empty
+                            <tr><td colspan="4" class="text-center py-4">Belum ada pemasukan</td></tr>
+                            @endforelse
+                            </div>
+
+                            <hr class="bg-black w-[30rem] h-0.5 mt-10 mb-2">
+
+                            <div>
+                                @forelse($latestExpense as $expense)
+                                <p>
+                                    <span class="text-lg font-semibold">{{ Auth::user()->name }},</span> 
+                                mengeluarkan uangnya sebesar Rp. {{ number_format($expense->total, 0, ',', '.') }}</p>
+                                <p>pada tanggal {{ $expense->transaction_date }}</p>
+                                <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
+                            @empty
+                            <tr><td colspan="4" class="text-center py-4">Belum ada pemasukan</td></tr>
+                            @endforelse
+                            </div>
                         </div>
                     </div>
                 </div>

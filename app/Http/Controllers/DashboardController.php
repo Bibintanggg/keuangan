@@ -16,11 +16,16 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $dash = Income::sum('total');
-        $expDash = Expense::sum('total');
+        $userId = Auth::id();
+
+        $dash = Income::where('user_id', $userId)->sum('total');
+        $expDash = Expense::where('user_id', $userId)->sum('total');
+
+        $latestIncome = Income::where('user_id', $userId)->latest()->take(10)->get();
+        $latestExpense = Expense::where('user_id', $userId)->latest()->take(10)->get();
 
         $saldo = $dash - $expDash;
-        return view('dashboard', compact('dash', 'expDash', 'saldo'));
+        return view('dashboard', compact('dash', 'expDash', 'saldo', 'latestIncome', 'latestExpense'));
     }
 
     /**
@@ -72,5 +77,11 @@ class DashboardController extends Controller
     public function destroy(string $id)
     {
         //
+        $dashIncome = Income::findOrFail($id);
+        $dashExpense = Expense::findOrFail($id);
+        $dashIncome->delete();
+        $dashExpense->delete();
+
+        return redirect()->route('dashboard.index')->with('success', 'Data berhasil dihapus!');
     }
 }
