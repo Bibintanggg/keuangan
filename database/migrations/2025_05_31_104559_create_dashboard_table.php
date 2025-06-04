@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('dashboard', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

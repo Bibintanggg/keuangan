@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laporan;
+use App\Models\Income;
+use App\Models\Expense;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -13,6 +16,11 @@ class LaporanController extends Controller
     public function index()
     {
         //
+        $userId = Auth::id();
+
+        $latestIncomeLaporan = Income::where('user_id', $userId)->latest()->take(10)->get();
+        $latestExpenseLaporan = Expense::where('user_id', $userId)->latest()->take(10)->get();
+
         $laporans = Laporan::where('user_id', auth()->id())->get();
         return view('laporan.index', compact('laporans'));
     }

@@ -113,14 +113,26 @@
                         <div class="overflow-y-auto max-h-[30rem]">
                             <div class="mt-5">
                                 @forelse($latestIncome as $income)
-                                <p>
-                                    <span class="text-lg font-semibold">{{ Auth::user()->name }},</span> 
-                                menabung sebesar Rp. "{{ number_format($income->total, 0, ',', '.') }}"</p>
-                                <p>pada tanggal {{ $income->transaction_date }}</p>
-                                <p>Deskripsi :  {{ $income->deskripsi }}</p>
-                                <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
+                                    <p>
+                                        <span class="text-lg font-semibold">{{ Auth::user()->name }},</span> 
+                                    menabung sebesar Rp. "{{ number_format($income->total, 0, ',', '.') }}"</p>
+                                    <p>pada tanggal {{ $income->transaction_date }}</p>
+                                    <div class="flex justify-between">
+                                        <p>Keterangan :  {{ $income->deskripsi }}</p>
 
-                            @empty
+                                        <form action="{{ route('income.destroy', $income->id) }}" method="POST" class="inline"
+                                            onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-500 hover:underline ml-2">
+                                                Hapus
+                                            </button>                               </form>
+                                    </div>
+
+                                    <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
+
+
+                                @empty
                             <tr><td colspan="4" class="text-center py-4">Belum ada pemasukan</td></tr>
                             @endforelse
                             </div>

@@ -19,7 +19,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @forelse($incomes as $income)
+                        @forelse($latestIncomeLaporan as $income)
                             <tr>
                                 <td class="px-4 py-3 whitespace-nowrap">Rp {{ number_format($income->total, 0, ',', '.') }}</td>
                                 <td class="px-4 py-3 whitespace-nowrap">{{ $income->deskripsi ?? '-' }}</td>
