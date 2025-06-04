@@ -22,7 +22,7 @@ class LaporanController extends Controller
         $latestExpenseLaporan = Expense::where('user_id', $userId)->latest()->take(10)->get();
 
         $laporans = Laporan::where('user_id', auth()->id())->get();
-        return view('laporan.index', compact('laporans'));
+        return view('laporan.index', compact('latestIncomeLaporan', 'latestExpenseLaporan'));
     }
 
     /**
