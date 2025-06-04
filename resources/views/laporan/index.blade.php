@@ -46,9 +46,11 @@
                                 <p>pada tanggal {{ $expense->transaction_date }}</p>
                                 <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
                             @empty
-                            <tr><td colspan="4" class="text-center py-4">Belum ada pemasukan</td></tr>
+                            <tr><td colspan="4" class="text-center py-4">Belum ada pengeluaran</td></tr>
                             @endforelse
                             </div>
+
+                            <a href="{{ url('dashboard')}}" class="bg-gray-500 text-white px-4 py-2 rounded mb-4 inline-block mt-10">Kembali</a>
                         </div>
         </div>
     </div>

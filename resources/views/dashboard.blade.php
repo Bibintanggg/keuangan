@@ -81,7 +81,7 @@
                             </svg>
                         </x-finance-icon>
                         <x-finance-icon 
-                        iconTitle="Laporan" 
+                        iconTitle="Informasi" 
                         bgColor="bg-green-500" 
                         textColor="text-white"
                         hoverColor="bg-white"
