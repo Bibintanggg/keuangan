@@ -151,6 +151,22 @@
                             @endforelse
                             </div>
                         </div>
+                        
+                        <button onclick="toggleModal('modalPemasukan')" class="bg-blue-600 text-white px-4 py-2 rounded">Pemasukan</button>
+                    <button onclick="toggleModal('modalPengeluaran')" class="bg-red-600 text-white px-4 py-2 rounded">Pengeluaran</button>
+
+                    <x-modal-form
+                    id="modalPemasukan"
+                    title="Pemasukan"
+                    action="{{ route('dashboard') }}"
+                    icon="{{ asset('image/income.svg') }}">
+                        
+                    </x-modal-form>
+
+                    <x-modal-form id="modalPengeluaran" title="Tambah Pengeluaran" action="{{ route('dashboard') }}">
+                    <input type="number" name="total" class="w-full border p-2 rounded mb-2" placeholder="Nominal" required>
+                    <textarea name="deskripsi" class="w-full border p-2 rounded mb-2" placeholder="Deskripsi"></textarea>
+                    </x-modal-form>
                     </div>
                 </div>
             </div>

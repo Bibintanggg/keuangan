@@ -28,6 +28,7 @@ route::post('/expense/store', [ExpenseController::class, 'store'])->name('expens
 Route::resource('expense', ExpenseController::class);
 
 Route::get('/laporan', [LaporanController::class, 'index']);
+Route::delete('/laporan/{id}', [LaporanController::class, 'destroy'])->name('laporan.destroy');
 
 Route::post('/create', [IncomeController::class, 'submit'])->name('button.submit');
 

@@ -19,7 +19,7 @@
                                     <div class="flex justify-between">
                                         <p>Keterangan :  {{ $income->deskripsi }}</p>
 
-                                        <form action="{{ route('income.destroy', $income->id) }}" method="POST" class="inline"
+                                        <form action="{{ route('laporan.destroy', $income->id) }}" confirm="Yakin ingin menghapus data ini??" method="POST" 
                                             onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                                             @csrf
                                             @method('DELETE')
