@@ -1,8 +1,7 @@
-@props(['id', 'title', 'action', 'icon' => null])
+@props(['id', 'title', 'action'])
 
 <div id="{{ $id }}" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
-  <div class="bg-white w-full max-w-md p-6 rounded shadow-lg">
-    <img src="{{ $icon }}" />
+  <div class="bg-white w-10 max-w-md  shadow-lg">
     <h2 class="text-lg font-bold mb-4">{{ $title }}</h2>
     <form action="{{ $action }}" method="POST">
       @csrf
