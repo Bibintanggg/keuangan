@@ -182,13 +182,6 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </button>
-
-                            <button onclick="toggleModal('modalPengeluaran')" class="bg-blue-600 text-white w-[4rem] h-[4rem] rounded-3xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" class="mx-auto">
-                                    <path fill="currentColor"
-                                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M9 17H7v-7h2zm4 0h-2V7h2zm4 0h-2v-4h2z" />
-                                </svg>
-                            </button>
                         </div>
 
 
@@ -211,6 +204,7 @@
                     required>
 
                     <input type="text"
+                    name="deskripsi"
                     class="mt-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     placeholder="Masukkan deskripsi"
                     required>
@@ -221,9 +215,24 @@
                     title="Tambah Pengeluaran"
                     action="{{ route('dashboard') }}">
 
-                    <input type="number" name="total" class="w-full border p-2 rounded mb-2" placeholder="Nominal" required>
-                    <textarea name="deskripsi" class="w-full border p-2 rounded mb-2" placeholder="Deskripsi"></textarea>
-                    
+                    <input type="date"
+                    name="transaction_date"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    value="{{ now()->format('Y-m-d') }}"
+                    required>
+
+                    <input type="number"
+                    name="total"
+                    placeholder="Masukkan nominal"
+                    class="mt-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    required>
+
+                    <input type="text"
+                    name="deskripsi"
+                    class="mt-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Masukkan deskripsi"
+                    required>
+
                     </x-modal-form>
                     </div>
                 </div>
@@ -232,7 +241,3 @@
     </div>
     
 </x-app-layout>
-    <script>
-        
-    </script>
-
