@@ -153,8 +153,11 @@
                             </div>
                         </div>
                         
-                        <div class="flex gap-2">
-                            <button onclick="toggleModal('modalPemasukan')" class="bg-blue-600 text-white w-[4rem] h-[4rem] rounded-3xl" >
+                        <div class="flex gap-2 justify-center mx-auto">
+                            <button 
+                            onclick="toggleModal('modalPemasukan')" 
+                            class="bg-blue-600 text-white w-[4rem] h-[4rem] rounded-3xl"  
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48"
                                 class="items-center mx-auto">
                                     <g fill="currentColor">
@@ -169,7 +172,7 @@
                                             d="M34 42a8 8 0 1 0 0-16a8 8 0 0 0 0 16m1-7.58l1.19-1.067l1.335 1.49L34 38.001l-3.525-3.16l1.335-1.489L33 34.42V30h2z"
                                             clip-rule="evenodd" />
                                     </g>
-                                </svg>
+                                </svg> 
                             </button>
 
                             <button onclick="toggleModal('modalPengeluaran')" class="bg-blue-600 text-white w-[4rem] h-[4rem] rounded-3xl">
@@ -194,12 +197,33 @@
                     title="Tambah Pemasukan"
                     action="{{ route('dashboard') }}"
                     >
-                        
+
+                    <input type="date" 
+                    name="transaction_date" 
+                    class="w-full border p-2 rounded"
+                    value="{{ now()->format('Y-m-d')}}"
+                    required/>
+
+                    <input type="number"
+                    name="total"
+                    class=" mt-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Masukkan nominal"
+                    required>
+
+                    <input type="text"
+                    class="mt-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    placeholder="Masukkan deskripsi"
+                    required>
                     </x-modal-form>
 
-                    <x-modal-form id="modalPengeluaran" title="Tambah Pengeluaran" action="{{ route('dashboard') }}">
+                    <x-modal-form 
+                    id="modalPengeluaran" 
+                    title="Tambah Pengeluaran"
+                    action="{{ route('dashboard') }}">
+
                     <input type="number" name="total" class="w-full border p-2 rounded mb-2" placeholder="Nominal" required>
                     <textarea name="deskripsi" class="w-full border p-2 rounded mb-2" placeholder="Deskripsi"></textarea>
+                    
                     </x-modal-form>
                     </div>
                 </div>
@@ -208,3 +232,7 @@
     </div>
     
 </x-app-layout>
+    <script>
+        
+    </script>
+
