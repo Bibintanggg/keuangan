@@ -19,13 +19,14 @@
                                     <div class="flex justify-between">
                                         <p>Keterangan :  {{ $income->deskripsi }}</p>
 
-                                        <form action="{{ route('laporan.destroy', $income->id) }}" confirm="Yakin ingin menghapus data ini??" method="POST" 
+                                        <form action="{{ route('income.destroy', $income->id) }}" confirm="Yakin ingin menghapus data ini??" method="POST" 
                                             onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-red-500 hover:underline ml-2">
                                                 Hapus
-                                            </button>                               </form>
+                                            </button>                               
+                                        </form>
                                     </div>
 
                                     <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
@@ -38,16 +39,34 @@
 
                             <hr class="bg-black w-[30rem] h-0.5 mt-10 mb-2">
 
-                            <div>
-                                @forelse($latestExpenseLaporan   as $expense)
-                                <p>
-                                    <span class="text-lg font-semibold">{{ Auth::user()->name }},</span> 
-                                mengeluarkan uangnya sebesar Rp. {{ number_format($expense->total, 0, ',', '.') }}</p>
-                                <p>pada tanggal {{ $expense->transaction_date }}</p>
-                                <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
-                            @empty
-                            <tr><td colspan="4" class="text-center py-4">Belum ada pengeluaran</td></tr>
-                            @endforelse
+                            <div class="mt-5">
+                                @forelse($latestExpenseLaporan as $expense)
+                                    <p>
+                                        <span class="text-lg font-semibold">{{ Auth::user()->name }},</span>
+                                        menabung sebesar Rp. "{{ number_format($expense->total, 0, ',', '.') }}"
+                                    </p>
+                                    <p>pada tanggal {{ $expense->transaction_date }}</p>
+                                    <div class="flex justify-between">
+                                        <p>Keterangan : {{ $expense->deskripsi }}</p>
+
+                                        <form action="{{ route('expense.destroy', $expense->id) }}" confirm="Yakin ingin menghapus data ini??"
+                                            method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-500 hover:underline ml-2">
+                                                Hapus
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
+
+
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="text-center py-4">Belum ada pengeluaran</td>
+                                    </tr>
+                                @endforelse
                             </div>
 
                             <a href="{{ url('dashboard')}}" class="bg-gray-500 text-white px-4 py-2 rounded mb-4 inline-block mt-10">Kembali</a>

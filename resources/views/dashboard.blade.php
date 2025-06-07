@@ -111,7 +111,7 @@
                             <p class="font-bold text-xl">Informasi</p>
                         </div>
                         
-                        <div class="overflow-y-auto max-h-[30rem]">
+                        <div class="max-h-[80vh] overflow-y-auto">
                             <div class="mt-5">
                                 @forelse($latestIncome as $income)
                                     <p>
@@ -130,7 +130,7 @@
                                             </button>                               </form>
                                     </div>
 
-                                    <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
+                                    <hr class="bg-black w-[30rem] h-0.5 mt-10 mb-2">
 
 
                                 @empty
@@ -138,17 +138,28 @@
                             @endforelse
                             </div>
 
-                            <hr class="bg-black w-[30rem] h-0.5 mt-10 mb-2">
-
-                            <div>
+                            <div class="mt-5">
                                 @forelse($latestExpense as $expense)
-                                <p>
-                                    <span class="text-lg font-semibold">{{ Auth::user()->name }},</span> 
-                                mengeluarkan uangnya sebesar Rp. {{ number_format($expense->total, 0, ',', '.') }}</p>
-                                <p>pada tanggal {{ $expense->transaction_date }}</p>
-                                <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
-                            @empty
-                            <tr><td colspan="4" class="text-center py-4">Belum ada pemasukan</td></tr>
+                                    <p>
+                                        <span class="text-lg font-semibold">{{ Auth::user()->name }},</span> 
+                                    mengeluarkan uang sebesar Rp. "{{ number_format($expense->total, 0, ',', '.') }}"</p>
+                                    <p>pada tanggal {{ $expense->transaction_date }}</p>
+                                    <div class="flex justify-between">
+                                        <p>Keterangan :  {{ $expense->deskripsi }}</p>
+
+                                        <form action="{{ route('expense.destroy', $expense->id) }}" method="POST" class="inline"
+                                            onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-500 hover:underline ml-2">
+                                                Hapus
+                                            </button>                              
+                                        </form>
+                                    </div>
+
+                                    <hr class="bg-black w-[30rem] h-0.5 mt-2 mb-2">
+                                @empty
+                            <tr><td colspan="4" class="text-center py-4">Belum ada pengeluaran</td></tr>
                             @endforelse
                             </div>
                         </div>
@@ -197,10 +208,12 @@
                         </div>
 
 
+                        
+                    </div>
                     <x-modal-form
                     id="modalPemasukan"
                     title="Tambah Pemasukan"
-                    action="{{ route('dashboard') }}"
+                    action="{{ route('income.store') }}"
                     >
 
                     <input type="date" 
@@ -225,7 +238,7 @@
                     <x-modal-form 
                     id="modalPengeluaran" 
                     title="Tambah Pengeluaran"
-                    action="{{ route('dashboard') }}">
+                    action="{{ route('expense.store') }}">
 
                     <input type="date"
                     name="transaction_date"
@@ -246,8 +259,6 @@
                     required>
 
                     </x-modal-form>
-
-                    </div>
                 </div>
             </div>
         </div>

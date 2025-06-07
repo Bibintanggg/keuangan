@@ -44,7 +44,7 @@ class IncomeController extends Controller
             'deskripsi' => $request->deskripsi,
             'user_id' => auth()->id(),
         ]);
-        return redirect()->route('income.index')->with('succes,', ' Pemasuka berhasil ditambahkan!');
+        return redirect()->back()->with('succes,', ' Pemasuka berhasil ditambahkan!');
 
     }
 
@@ -79,6 +79,6 @@ class IncomeController extends Controller
     {
         $tugas = Income::findOrFail($id);
         $tugas->delete();
-        return redirect()->route('income.index')->with('succes', 'Berhasil! Pemasukan berhasil dihapus!');
+        return redirect()->back()->with('succes', 'Berhasil! Pemasukan berhasil dihapus!');
     }
 }

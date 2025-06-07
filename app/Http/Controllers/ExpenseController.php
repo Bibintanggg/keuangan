@@ -53,7 +53,7 @@ class ExpenseController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('expense.index')->with('succes', 'Berhasil! Pengeluaran berhasil ditambahkan');
+        return redirect()->back()->with('succes', 'Berhasil! Pengeluaran berhasil ditambahkan');
 
     }
 
@@ -100,7 +100,7 @@ class ExpenseController extends Controller
         //
         $expenses = Expense::findOrFail($id);
         $expenses -> delete();
-        return redirect()->route('expense.index')->with('succes', 'Berhasil! Pengeluaran berhasil dihapus!');
+        return redirect()->back()->with('succes', 'Berhasil! Pengeluaran berhasil dihapus!');
         
     }
 }
