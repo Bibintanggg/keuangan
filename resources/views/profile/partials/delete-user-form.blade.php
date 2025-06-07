@@ -50,6 +50,14 @@
                     {{ __('Delete Account') }}
                 </x-danger-button>
             </div>
+            
         </form>
     </x-modal>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();"
+            class="text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+            {{ __('Log Out') }}
+        </x-responsive-nav-link>
+    </form>
 </section>

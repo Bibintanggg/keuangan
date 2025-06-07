@@ -25,8 +25,8 @@
     </div>
 
     <!-- Dropdown Menu -->
-    <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-all ease-in-out duration-300">
-        <div class="px-4 pb-3 pt-2 space-y-1">
+    <div x-show="open" @click.away="open = false" class="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-all ease-in-out duration-300 left-1/2 -translate-x-[-20%]">
+        <div class="px-4 pb-3 pt-2 space-y-1 mx-auto">
             <!-- Navigation Links -->
 
             <!-- User Info -->

@@ -14,16 +14,16 @@
                 <div class="p-6 bg-gray-700 w-[90%] mx-auto rounded-lg h-[17rem]">
                     <h1 class="text-white mx-auto text-center text-2xl">Dompet Saya</h1>
                     <div class="flex mt-5">
-                        <div class="flex justify-center text-white mx-auto gap-12">
+                        <div class="flex justify-center text-white mx-auto gap-3 lg:gap-12">
                             <div>
-                                <h1 class="text-2xl text-nowrap">Total Pemasukan</h1>
+                                <h1 class="text-xl text-nowrap lg:text-2xl ">Total Pemasukan</h1>
                                 <p class="text-xl">
                                     Rp {{ number_format($dash, 0, ',', '.') }}
                                 </p>
                             </div>
                             <hr class="w-0.5 h-16 bg-white">
                             <div>
-                                <h1 class="text-2xl text-nowrap">Total Pengeluaran</h1>
+                                <h1 class="text-xl text-nowrap lg:text-2xl">Total Pengeluaran</h1>
                                 <p class="text-xl">
                                     Rp {{ number_format($expDash, 0, ',', '.') }}
                                 </p>
@@ -111,7 +111,7 @@
                             <p class="font-bold text-xl">Informasi</p>
                         </div>
                         
-                        <div class="h-[20rem] overflow-y-scroll px-4 py-2">
+                        <div class="h-[20rem] overflow-y-scroll px-4 py-2 overflow-x-hidden">
                             <div class="mt-5">
                                 @forelse($latestIncome as $income)
                                     <p>

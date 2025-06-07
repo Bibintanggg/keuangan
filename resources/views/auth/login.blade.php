@@ -1,6 +1,10 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <div class="flex flex-col mx-auto items-center text-center mb-5">
+        <h1 class="text-2xl font-semibold">Selamat Datang Kembali</h1>
+        <p class="text-sm font-normal items-center mt-2">Senang melihatmu kembali! Masukkan email dan kata sandimu untuk melanjutkan.</p>
+    </div>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf

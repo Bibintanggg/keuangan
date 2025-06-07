@@ -1,4 +1,11 @@
 <x-guest-layout>
+
+    <div class="flex flex-col mb-5 mx-auto items-center">
+        <h1 class="text-3xl font-semibold">Buat Akun</h1>
+        <p class="text-sm font-normal items-center text-center mt-2">
+            Selamat datang! Lengkapi beberapa informasi dasar untuk mulai menikmati fitur dan manfaat yang kami sediakan.
+        </p>
+    </div>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
