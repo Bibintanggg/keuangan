@@ -1,6 +1,6 @@
 @props(['id', 'title', 'action', 'icon' => null])
 
-<div id="{{ $id }}" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+<div id="{{ $id }}" class="fixed inset-0 z-[1100] flex items-center justify-center bg-black bg-opacity-50 hidden">
   <div class="bg-white w-full max-w-md p-6 rounded shadow-lg">
     @if($icon)
     <img src="{{ $icon }}" class="mx-auto mb-4" />
