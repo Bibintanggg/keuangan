@@ -69,8 +69,8 @@
                                 @endforelse
                             </div>
 
-                            <a href="{{ url('dashboard')}}" class="bg-gray-500 text-white px-4 py-2 rounded mb-4 inline-block mt-10">Kembali</a>
                         </div>
+                        <a href="{{ url('dashboard')}}" class="bg-gray-500 text-white px-4 py-2 rounded mb-4 inline-block mt-10">Kembali</a>
         </div>
     </div>
 </x-app-layout>
